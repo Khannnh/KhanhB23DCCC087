@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  <style>
+    .login-container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: rgb(216, 227, 236);
+    margin-top: 100px;
+}
+
+
+input[type="text"],
+input[type="password"],
+button[type="submit"] {
+    display: block;
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    margin:auto
+}
+
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    margin:auto
+}
+
+
+.error-message {
+    color: red;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color:#4CAF50;
+    font-size: 50px;
+}
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username"></label>
+        <input type="text" id="username" name="username" required autofocus placeholder="Username*"><br><br>
+      </div>
+      <div class="form-group">
+        <label for="password"></label>
+        <input type="password" id="password" name="password" required autofocus placeholder="Password*"><br><br>
+      </div>
+      <button type="submit">Submit</button><br>
+    </form>
+    <p id="error-message" class="error-message"></p>
+  </div>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault();   /* Bộ lắng nghe này sẽ kích hoạt khi biểu mẫu được gửi đi (sự kiện "submit").*/
+  var x = document.getElementById('username').value;
+  var y = document.getElementById('password').value;
+
+
+  if (x === 'admin' && y === 'admin') {
+    // Redirect to admin page
+    window.location.href = 'admin.html';
+  } else {
+    document.getElementById('error-message').textContent = 'Tài khoản hoặc mật khẩu không chính xác';
+  }
+});
+  </script>
+</body>
+</html>
+
+
+
